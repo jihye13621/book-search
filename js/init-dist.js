@@ -914,10 +914,10 @@ function getBookDetails(identifier) {
     }
     
     if (response.description) {
-      if (response.description && response.description.value) {
-        bookDescription = `<p><span class="text-bold">Description: ${response.description.value}</span>`;
-      } 
       bookDescription = `<p class="description-box"><span class="text-bold">Description: ${response.description}</span>`;
+      if (response.description.value) {
+        bookDescription = `<p class="description-box"><span class="text-bold">Description: ${response.description.value}</span>`;
+      } 
     } 
     if (response.subjects && response.subjects.length) {
       subjectMatters = `<p><span class="text-bold">Subject: `;
