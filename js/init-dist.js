@@ -838,7 +838,7 @@ function getBooksWhileTyping(inputEl) {
           a.appendChild(b);
         }
         if (!response.docs.length || response.numFound == 0 || response.num_found == 0) {
-          $('.output').html("No Such Results");
+          $('.output').html(`<span class="no-such-results">No Such Results</span>`);
           closeAllLists();
           element.classList.add("d-none");
         }
@@ -903,7 +903,7 @@ function getBookDetails(identifier) {
   fetch(`https://openlibrary.org${bookKey}.json`)
   .then(a=>a.json())
   .then(response=>{
-    // console.log(response);
+    console.log(response);
     let outputText = '';
     let coverArtImg = `/img/cover-img.png`; // placeholder
     let bookDescription = '';
