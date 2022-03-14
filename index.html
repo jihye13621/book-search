@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="img/books-emoji.png">
+    <title>Book Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="styles/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="purple navigation-wrapper animate__animated animate__fadeInDown d-none" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" onClick="window.location.reload();" class="brand-logo">
+            <img src="img/books-emoji.png" class="book-logo" alt="logo">
+            Book Search
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li><a class="click-book-animation" href="#">Books are cool!</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            <li><a class="click-book-animation" href="#">Books are cool!</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<div class="section no-pad-bot bg-custom main-search-page d-none" id="index-banner">
+    <div class="container animate__animated animate__zoomIn">
+        <form autocomplete="off">
+            <div class="autocomplete">
+                <div class="right d-none" id="loading-css">
+
+                    <!-- loading spinner -->
+                    <div class="preloader-wrapper small active">
+                        <div class="spinner-layer spinner-blue">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+        
+                        <div class="spinner-layer spinner-red">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+        
+                        <div class="spinner-layer spinner-yellow">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+        
+                        <div class="spinner-layer spinner-green">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <input id="myInput" type="text" name="bookSearch" placeholder="Search for a Book">
+            </div>
+        </form>
+        <!-- results -->
+        <p class="output"></p>
+        <div class="center">
+            <a class="purple waves-effect waves-light btn-back-search btn-large d-none"><i class="material-icons left">cloud</i>Back to Search</a>
+        </div>
+        <div class="center spinning-books">
+            <span id="ThreeJsCanvas" class=""></span>
+        </div>
+
+    </div>
+</div>
+<div class="rainbow-bg invisible viewpoint-fadeInDown" id="book-pile-wrapper">
+    <span id="ThreeJsCanvas2" class="animate__animated animate__jello animate__bounceInUp" style="display: block;"></span>
+</div>
+<footer class="page-footer grey darken-4 center animate__animated animate__fadeInUp d-none">
+    <div class="container">
+        <div class="row">
+            <h5 class="white-text">Motional <i class="material-icons" style="vertical-align: initial;">directions_car</i></h2></h5>
+            <p class="grey-text text-lighten-4">An autonomous vehicle company</p>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <a class="purple-text text-lighten-3" target="_blank" href="https://motional.com/">https://motional.com/</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://web11105.web5.mynet.at/plugins/serfaus/events/assets/fullcalendar/lib/jquery.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-viewport-checker/1.8.8/jquery.viewportchecker.min.js"></script>
+<script src="js/init-dist.js"></script>
+</body>
+</html>
