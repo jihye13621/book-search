@@ -156,7 +156,7 @@ function getBooksWhileTyping(inputEl) {
           a.appendChild(b);
         }
         if (!response.docs.length || response.numFound == 0 || response.num_found == 0) {
-          $('.output').html(`<span class="white black-text">No Such Results</span>`);
+          $('.output').html(`<span class="no-such-results">No Such Results</span>`);
           closeAllLists();
           element.classList.add("d-none");
         }
