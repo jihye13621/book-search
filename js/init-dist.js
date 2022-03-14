@@ -811,34 +811,36 @@ function getBooksWhileTyping(inputEl) {
       
       for (i = 0; i < response.docs.length; i++) {
           let coverArtImg;
-          if (!response.docs[i].cover_i) {
-              coverArtImg = `/img/cover-img.png`;
-          } else {
-              coverArtImg = `https://covers.openlibrary.org/b/id/${response.docs[i].cover_i}-S.jpg`;
-          }
-          b = document.createElement("DIV");
-          b.setAttribute("class", "flex box");
-          b.innerHTML = `<div class="cover-img-wrapper"><img class="type-cover-img" src="${coverArtImg}" alt=""></div>`;
-          b.innerHTML += `<div><a data-id="${response.docs[i].title}" data-key="${response.docs[i].key}" data-author-key="${response.docs[i].author_key[0]}"class="purple-text book-titles" onclick="getBookDetails(this)">` + response.docs[i].title + "</a><br>by: " + response.docs[i].author_name[0] + "</div>";
-          b.addEventListener("click", function(e) {
-              /*close the list of autocompleted values,
-              (or any other open lists of autocompleted values:*/
-              closeAllLists();
-          });
-
-          window.addEventListener('click', function(e){   
-              if (document.getElementById('myInputautocomplete-list') && document.getElementById('myInputautocomplete-list').contains(e.target)){
-              } else {
-                // Clicked outside the box
+          if (response.docs[i].title && response.docs[i].key && response.docs[i].author_key && response.docs[i].author_key.length) {
+            if (!response.docs[i].cover_i) {
+                coverArtImg = `/img/cover-img.png`;
+            } else {
+                coverArtImg = `https://covers.openlibrary.org/b/id/${response.docs[i].cover_i}-S.jpg`;
+            }
+            b = document.createElement("DIV");
+            b.setAttribute("class", "flex box");
+            b.innerHTML = `<div class="cover-img-wrapper"><img class="type-cover-img" src="${coverArtImg}" alt=""></div>`;
+            b.innerHTML += `<div><a data-id="${response.docs[i].title}" data-key="${response.docs[i].key}" data-author-key="${response.docs[i].author_key[0]}"class="purple-text book-titles" onclick="getBookDetails(this)">` + response.docs[i].title + "</a><br>by: " + response.docs[i].author_name[0] + "</div>";
+            b.addEventListener("click", function(e) {
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
                 closeAllLists();
-                $('#myInput').val('');
-              }
-          });
-          element.classList.add("d-none");
-          a.appendChild(b);
+            });
+
+            window.addEventListener('click', function(e){   
+                if (document.getElementById('myInputautocomplete-list') && document.getElementById('myInputautocomplete-list').contains(e.target)){
+                } else {
+                  // Clicked outside the box
+                  closeAllLists();
+                  $('#myInput').val('');
+                }
+            });
+            element.classList.add("d-none");
+            a.appendChild(b);
+          }
         }
         if (!response.docs.length || response.numFound == 0 || response.num_found == 0) {
-          $('.output').html(`<span class="no-such-results">No Such Results</span>`);
+          $('.output').html(`<span class="no-such-results animate__animated animate__fadeInDown">No Such Results</span>`);
           closeAllLists();
           element.classList.add("d-none");
         }
